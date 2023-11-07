@@ -1,8 +1,20 @@
 var aircraft = require('../models/aircraft');
 
+// List of all aircrafts
+exports.aircraft_list = async function (req, res) {
+    try {
+        theAircrafts = await aircraft.find();
+        res.send(theAircrafts);
+    }
+    catch (err) {
+        res.status(500);
+        res.send(`{"error": ${err}}`);
+    }
+};
+
 // List of all Aircrafts
 exports.aircraft_list = function(req, res) {
-    res.send('NOT IMPLEMENTED: Costume list');
+    res.send('NOT IMPLEMENTED: Aircraft list');
 };
 
 // for a specific aircraft.
