@@ -25,20 +25,20 @@ exports.aircraft_view_all_Page = async function (req, res) {
     }
 };
 
-// List of all Aircrafts
-exports.aircraft_list = function(req, res) {
-    res.send('NOT IMPLEMENTED: Aircraft list');
-};
+// // List of all Aircrafts
+// exports.aircraft_list = function(req, res) {
+//     res.send('NOT IMPLEMENTED: Aircraft list');
+// };
 
 // for a specific aircraft.
 exports.aircraft_detail = function (req, res) {
     res.send('NOT IMPLEMENTED: aircraft detail: ' + req.params.id);
 };
 
-// Handle aircraft create on POST.
-exports.aircraft_create_post = function (req, res) {
-    res.send('NOT IMPLEMENTED: aircraft create POST');
- };
+// // Handle aircraft create on POST.
+// exports.aircraft_create_post = function (req, res) {
+//     res.send('NOT IMPLEMENTED: aircraft create POST');
+//  };
 
  // Handle aircraft delete form on DELETE.
 exports.aircraft_delete = function (req, res) {
@@ -50,7 +50,7 @@ exports.aircraft_update_put = function(req, res) {
     res.send('NOT IMPLEMENTED: aircraft update PUT' + req.params.id);
 };
 
-// Handle Costume create on POST.
+// Handle Aircraft create on POST.
 exports.aircraft_create_post = async function (req, res) {
     console.log(req.body)
     let document = new aircraft();
@@ -59,7 +59,7 @@ exports.aircraft_create_post = async function (req, res) {
     // and require that it be a json object
     // {"aircraft_model": 'Boeing 747', "aircraft_type": 'Commercial', "manufacture_year": 2005}
     document.aircraft_type = req.body.aircraft_type;
-    document.aircraft_model = req.body.aircraft_modele;
+    document.aircraft_model = req.body.aircraft_model;
     document.manufacture_year = req.body.manufacture_year;
     try {
         let result = await document.save();
