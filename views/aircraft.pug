@@ -12,13 +12,13 @@ block content
           p Manufacture Year: #{aircraft.manufacture_year}
     br
 
-    h5= 'buy'
+  //-   h5= 'buy'
 
-  div(class="container-fluid")
-    each aircraft,index in results
-      div(class="row", onclick=`buy(${index})`)
-        div(class="col-sm-2") <br>aircraft #{index}: #{aircraft.aircraft_type} model:#{aircraft.aircraft_model} year:#{aircraft.manufacture_year}
-  script.
-        function buy(price){
-          alert('You purchased item ' + price)
-        }
+  //- div(class="container-fluid")
+  //-   each aircraft,index in results
+  //-     div(class="row", onclick=`buy(${index})`)
+  //-       div(class="col-sm-2") <br>aircraft #{index}: #{aircraft.aircraft_type} model:#{aircraft.aircraft_model} year:#{aircraft.manufacture_year}
+  //- script.
+  //-       function buy(price){
+  //-         alert('You purchased item ' + price)
+  //-       }
