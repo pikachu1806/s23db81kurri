@@ -15,6 +15,9 @@ router.get('/', (req, res) => {
   res.render('aircraft', { title: 'Search Results - Aircraft', results: aircraftData });
 });
 
+ // GET request for one costume.
+ router.get('/aircraft/:id', aircraft_controlers.aircraft_detail);
+
 /* GET home page. */
 router.get('/', aircraft_controlers.aircraft_view_all_Page);
 
