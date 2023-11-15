@@ -1,0 +1,23 @@
+extends layout
+block content
+    h1= title
+    if (toShow == null) 
+        h2 No instance to details  
+    else
+        - let aircraftid = toShow._id
+        - let aircraft_model = toShow.aircraft_model
+        - let aircraft_type = toShow.aircraft_type
+        - let manufacture_year = toShow.manufacture_year
+        div
+            div.row
+            div(class='aircraftAttr mr-3') Aircraft  ID is:
+            div #{aircraftid}
+            div.row
+            div(class='aircraftAttr mr-3') Aircraft  Model  is:
+            div #{aircraft_model}
+            div.row
+            div(class='aircraftAttr mr-3') Aircraft Size  is:
+            div #{aircraft_type}
+            div.row
+            div(class='aircraftAttr mr-3') Aircraft Cost  is:
+            div #{manufacture_year}

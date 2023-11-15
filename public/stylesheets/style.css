@@ -6,3 +6,14 @@ body {
 a {
   color: #00B7FF;
 }
+
+.aircraftAttr {
+  background-color: aquamarine;
+  width: 120px;
+  /* color: blue;
+  text-align: center;
+  border-radius: 10px;
+  align-items: center;
+  align-content: center;
+  font-weight: bolder; */
+  }
