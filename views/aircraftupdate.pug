@@ -1,0 +1,50 @@
+extends layout 
+ 
+block content 
+  h1= title 
+  if (toShow == null) 
+    h2 No instance to update 
+  else
+    - let aircraftid = toShow._id 
+    - let aircraft_model = toShow.aircraft_model 
+    - let aircraft_type = toShow.aircraft_type 
+    - let manufacture_year = toShow.manufacture_year 
+   
+    div.row(class='mb-2') 
+        div.mr-1 ID is 
+        div #{aircraftid} 
+    - let actionid = "/resource/aircraft/" + aircraftid 
+    form(id='aircraftForm', action= actionid, method="PUT") 
+        div.form-group 
+            label.aircraftAttr(for='aircraft_model') Aircraft model 
+            input#aircraft_model(type='text', name='aircraft_model', value= aircraft_model ) 
+        div.form-group 
+            label.aircraftAttr(for='aircraft_type') Aircraft type  
+            input#aircraft_type(type='text', name='aircraft_type', value= aircraft_type ) 
+        div.form-group 
+            label.aircraftAttr(for='manufacture_year') manufacture year  
+            input#manufacture_year(type='number', name='manufacture_year', value= manufacture_year ) 
+        input(type="submit") 
+ 
+    script. 
+        document.forms['aircraftForm'].addEventListener('submit', (event) => { 
+        event.preventDefault(); 
+        // TODO do something here to show user that form is being submitted 
+        fetch(event.target.action, { 
+            method: 'PUT', 
+            body: new URLSearchParams(new FormData(event.target)) // event.target is the form 
+        }).then((resp) => { 
+            return resp.json(); // or resp.text() or whatever the server sends 
+        }).then((body) => { 
+            
+            console.log(body)
+            if(body.error)
+             alert('Please Enter Valid Details')
+            else
+             alert("Update succeded") 
+            // TODO handle body 
+        }).catch((error) => { 
+            // TODO handle error 
+            alert("Update failed " + error ) 
+        }); 
+        });

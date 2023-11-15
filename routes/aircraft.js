@@ -27,4 +27,7 @@ router.get('/detail', aircraft_controlers.aircraft_view_one_Page);
 /* GET create aircraft page */
 router.get('/create', aircraft_controlers.aircraft_create_Page);
 
+/* GET create update page */
+router.get('/update', aircraft_controlers.aircraft_update_Page);
+
 module.exports = router;
