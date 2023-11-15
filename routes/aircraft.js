@@ -30,4 +30,7 @@ router.get('/create', aircraft_controlers.aircraft_create_Page);
 /* GET create update page */
 router.get('/update', aircraft_controlers.aircraft_update_Page);
 
+/* GET delete iphone page */
+router.get('/delete', aircraft_controlers.aircraft_delete_Page);
+
 module.exports = router;

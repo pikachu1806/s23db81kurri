@@ -15,7 +15,6 @@ block content
  
  script. 
     document.forms['AircraftForm'].addEventListener('submit', (event) => { 
-      console.log("**************`")
       event.preventDefault(); 
       // TODO do something here to show user that form is being submitted 
       fetch(event.target.action, { 
