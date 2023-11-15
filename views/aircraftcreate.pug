@@ -1,0 +1,37 @@
+extends layout
+block content
+ h1= title
+ form(id='AircraftForm', action="/resource/aircraft", method="POST")
+  div.form-group
+    label.aircraftAttr(for='aircraft_model') aircraft model
+    input#aircraft_model(type='text', name='aircraft_model')
+  div.form-group
+    label.aircraftAttr(for='aircraft_type') aircraft type
+    input#aircraft_type(type='text', name='aircraft_type')
+  div.form-group
+    label.aircraftAttr(for='manufacture_year') manufacture year 
+    input#manufacture_year(type='number', name='manufacture_year')
+  input(type="submit")
+ 
+ script. 
+    document.forms['AircraftForm'].addEventListener('submit', (event) => { 
+      console.log("**************`")
+      event.preventDefault(); 
+      // TODO do something here to show user that form is being submitted 
+      fetch(event.target.action, { 
+        method: 'POST', 
+        body: new URLSearchParams(new FormData(event.target)) // event.target is the form 
+      }).then((resp) => { 
+        return resp.json(); // or resp.text() or whatever the server sends 
+      }).then((body) => { 
+          console.log(body)
+          if(body.error)
+            alert("Values entered are not valid") 
+          else
+            alert("save Successful")
+        // TODO handle body 
+      }).catch((error) => { 
+        // TODO handle error 
+        alert("Save failed - Enter Valid Details "  ) 
+      }); 
+    });

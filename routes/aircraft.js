@@ -21,7 +21,10 @@ router.get('/', (req, res) => {
 /* GET home page. */
 router.get('/', aircraft_controlers.aircraft_view_all_Page);
 
-/* GET detail iphone page */
+/* GET detail aircraft page */
 router.get('/detail', aircraft_controlers.aircraft_view_one_Page);
+
+/* GET create aircraft page */
+router.get('/create', aircraft_controlers.aircraft_create_Page);
 
 module.exports = router;

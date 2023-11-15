@@ -10,13 +10,13 @@ const aircraft = require('../models/aircraft');
 router.get('/', api_controller.api);
 /// AIRCRAFT ROUTES ///
 // POST request for creating a aircraft.
-router.post('/aircrafts', aircraft_controller.aircraft_create_post);
+router.post('/aircraft', aircraft_controller.aircraft_create_post);
 // DELETE request to delete aircraft.
-router.delete('/aircrafts/:id', aircraft_controller.aircraft_delete);
+router.delete('/aircraft/:id', aircraft_controller.aircraft_delete);
 // PUT request to update aircraft.
-router.put('/aircrafts/:id', aircraft_controller.aircraft_update_put);
+router.put('/aircraft/:id', aircraft_controller.aircraft_update_put);
 // GET request for one aircraft.
-router.get('/aircrafts/:id', aircraft_controller.aircraft_detail);
+router.get('/aircraft/:id', aircraft_controller.aircraft_detail);
 // GET request for list of all aircraft items.
-router.get('/aircrafts', aircraft_controller.aircraft_list);
+router.get('/aircraft', aircraft_controller.aircraft_list);
 module.exports = router;
