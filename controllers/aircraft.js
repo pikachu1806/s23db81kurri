@@ -104,3 +104,16 @@ exports.aircraft_update_put = async function (req, res) {
         res.send(`{"error": "Values are not Valid failed"}`);
     }
 };
+
+// Handle aircraft delete on DELETE.
+exports.aircraft_delete = async function (req, res) {
+    console.log("delete " + req.params.id)
+    try {
+        result = await aircraft.findByIdAndDelete(req.params.id)
+        console.log("Removed " + result)
+        res.send(result)
+    } catch (err) {
+        res.status(500)
+        res.send(`{"error": Error deleting ${err}}`);
+    }
+};
