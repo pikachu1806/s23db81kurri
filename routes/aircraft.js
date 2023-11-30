@@ -1,6 +1,8 @@
 const express = require('express');
+const passport = require('passport');
 const aircraft_controlers= require('../controllers/aircraft');
 const router = express.Router();
+var Account = require('../models/account');
 
 // Sample data for aircraft
 const aircraftData = [
@@ -21,16 +23,20 @@ router.get('/', (req, res) => {
 /* GET home page. */
 router.get('/', aircraft_controlers.aircraft_view_all_Page);
 
-/* GET detail aircraft page */
-router.get('/detail', aircraft_controlers.aircraft_view_one_Page);
+const secured = (req, res, next) => {
+  if (req.user) {
+    return next();
+  }
+  res.redirect("/login");
+}
 
-/* GET create aircraft page */
-router.get('/create', aircraft_controlers.aircraft_create_Page);
+router.get('/update', secured, aircraft_controlers.aircraft_update_Page);
+router.get('/delete', secured, aircraft_controlers.aircraft_delete_Page);
+router.get('/create', secured, aircraft_controlers.aircraft_create_Page);
+router.get('/detail', secured, aircraft_controlers.aircraft_view_one_Page);
 
-/* GET create update page */
-router.get('/update', aircraft_controlers.aircraft_update_Page);
-
-/* GET delete iphone page */
-router.get('/delete', aircraft_controlers.aircraft_delete_Page);
+router.post('/login', passport.authenticate('local'), function (req, res) {
+  res.redirect('/');
+});
 
 module.exports = router;

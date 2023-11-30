@@ -7,7 +7,11 @@ aircraft_type: {
     maxLength:25
    
 },
-aircraft_model: String,
+aircraft_model: {type: String,
+    required:true,
+    minLength:4,
+    maxLength:25},
+
 manufacture_year: {
     type:Number,
     required:true,
